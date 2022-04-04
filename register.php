@@ -27,19 +27,19 @@
 </head>
 <body>
     <div class="container">
-    <form>
+    <form action = "config.php" method="POST">
   <div class="mb-3">
     <label for="exampleInputName" class="form-label">Name</label>
-    <input type="text" class="form-control" id="exampleInputName" name="Name">
+    <input type="text" class="form-control" id="exampleInputName" name="name">
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="exampleInputphone_no" class="form-label">Phone Number</label>
-    <input type="number" class="form-control" id="exampleInputNumber" name="phone_number">
+    <input type="number" class="form-control" id="exampleInputNumber" name="phone_no">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>

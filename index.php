@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Dashboard</title>
-</head>
-<body>
-
-<div class="topnav">
-  <a class="active" href="#home">Admin Dashboard</a>
-</div>
-<div class="sidebar">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-</div>
+<?php include 'header.php'?>
 
 <!-- Page content -->
 <div class="content">
@@ -30,7 +10,7 @@
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-  <form>
+  <form >
   <div class="mb-3">
     <label for="Company Name" class="form-label">Company Name</label>
     <input type="text" class="form-control" id="company name" name="Cname">
