@@ -1,5 +1,14 @@
 <?php include 'header.php'?>
+<?php
 
+$server = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'jobs';
+
+
+$conn = mysqli_connect($server, $username, $password, $database);
+?>
 <!-- Page content -->
 <div class="content">
   <br><br><br>
@@ -10,10 +19,10 @@
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-  <form >
+  <form action="config.php" method="POST">
   <div class="mb-3">
     <label for="Company Name" class="form-label">Company Name</label>
-    <input type="text" class="form-control" id="company name" name="Cname">
+    <input type="text" class="form-control" id="company name" name="cname">
   </div>
   <div class="mb-3">
     <label for="exampleInputPosition" class="form-label">Position</label>
@@ -21,14 +30,18 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputJobdesc" class="form-label">Job Description</label>
-    <input type="text" class="form-control" id="Jobdesc" name="Job Desc">
+    <input type="text" class="form-control" id="Jobdesc" name="JobDesc">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputskills" class="form-label">Skills Required</label>
+    <input type="text" class="form-control" id="exampleInputPosition" name="skills">
   </div>
   <div class="mb-3">
     <label for="CTC" class="form-label">CTC</label>
     <input type="text" class="form-control" id="CTC" name="CTC">
   </div>
   
-  <button type="submit" class="btn btn-primary" name = "job-submit">Submit</button>
+  <button type="submit" class="btn btn-primary" name = "job">Submit</button>
 </form>
   </div>
 </div>
@@ -41,24 +54,27 @@
       <th scope="col">CTC</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <?php
+    $sql = "SELECT `id`,`cname`, `position`, `CTC` FROM `jobs`";
+    $result = mysqli_query($conn, $sql);
+    $id=0;
+    
+    if($result->num_rows>0){
+      while($row=$result->fetch_assoc()){
+        echo"
+        <tbody>
+        <tr>
+             <td>".++$id."</td>
+             <td>".$row['cname']."</td>
+             <td>".$row['position']."</td>
+             <td>".$row['CTC']."</td>
+        </tr>";
+      }
+    }
+    else{
+      echo"";
+    }
+    ?>
   </tbody>
 </table>
 </div>

@@ -45,17 +45,22 @@ if(isset($_POST['log-submit'])){
     }
 }
 
+if(isset($_POST['job'])){
+    $cname=$_POST['cname'];
+    $position=$_POST['position'];
+    $Jobdesc=$_POST['JobDesc'];
+    $Skills=$_POST['skills'];
+    $CTC=$_POST['CTC'];
 
-
-
-
-
-
-
-
-
-
-
+    $job = "INSERT INTO `jobs`(`id`,`cname`, `position`, `JobDesc`, `skills`, `CTC`) VALUES ('$id','$cname','$position','$Jobdesc','$Skills','$CTC')";
+    
+    if(mysqli_query($conn, $job)){
+        header("location:index.php");
+    }
+    else{
+        echo"error failed to post the job $sql. " .mysqli_error($conn);
+    }
+}
 
 
 mysqli_close($conn);
