@@ -52,16 +52,20 @@ if(isset($_POST['job'])){
     $Skills=$_POST['skills'];
     $CTC=$_POST['CTC'];
 
-    $job = "INSERT INTO `jobs`(`id`,`cname`, `position`, `JobDesc`, `skills`, `CTC`) VALUES ('$id','$cname','$position','$Jobdesc','$Skills','$CTC')";
-    
-    if(mysqli_query($conn, $job)){
-        header("location:index.php");
-    }
-    else{
-        echo"error failed to post the job $sql. " .mysqli_error($conn);
-    }
+    $job = "INSERT INTO `jobs`(`cname`, `position`, `JobDesc`, `skills`, `CTC`) VALUES ('$cname','$position','$Jobdesc','$Skills','$CTC')";
+    mysqli_query($conn, $job);
+    header("location:index.php");
 }
+if(isset($_POST['apply'])){
+    $name = $_POST['name'];
+    $qual = $_POST['qual'];
+    $apply = $_POST['apply'];
+    $year = $_POST['year'];
+     
+    $sql = "INSERT INTO `candidates`( `name`, `apply`, `qual`, `year`) VALUES ('$name','$qual','$apply','$year')";
+    mysqli_query($conn, $sql);
 
+}
 
 mysqli_close($conn);
 
