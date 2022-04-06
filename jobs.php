@@ -1,4 +1,18 @@
 <?PHP include 'header.php' ?>
+<?php
+
+$server = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'jobs';
+
+
+$conn = mysqli_connect($server, $username, $password, $database);
+
+if($conn->connect_error){
+    die("connection error" .$conn->connect_error);
+}
+?>
 <div class="content">
 <br><br><br>
 <table class="table table-success table-striped">
@@ -6,28 +20,33 @@
     <tr>
       <th scope="col">S.NO</th>
       <th scope="col">Candidate Name</th>
-      <th scope="col">Position</th>
-      <th scope="col">Resume</th>
+      <th scope="col">College</th>
+      <th scope="col">Qualification</th>
+      <th scope="col">Passout Year</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+  <?php
+    $sql = "SELECT `name`,`college`,`qual`, `year`FROM `candidates`";
+    $result = mysqli_query($conn, $sql);
+    $id=0;
+    
+    if($result->num_rows>0){
+      while($row=$result->fetch_assoc()){
+        echo"
+        <tbody>
+        <tr>
+             <td>".++$id."</td>
+             <td>".$row['name']."</td>
+             <td>".$row['college']."</td>
+             <td>".$row['qual']."</td>
+             <td>".$row['year']."</td>
+        </tr>";
+      }
+    }
+    else{
+      echo"";
+    }
+    ?>
   </tbody>
 </table>
 </div>

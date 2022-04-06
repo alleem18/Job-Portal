@@ -56,14 +56,17 @@ if(isset($_POST['job'])){
     mysqli_query($conn, $job);
     header("location:index.php");
 }
-if(isset($_POST['apply'])){
+if(isset($_POST['submita'])){
+    $college = $_POST['college'];
+    $rollno =$_POST['rollno'];
     $name = $_POST['name'];
     $qual = $_POST['qual'];
-    $apply = $_POST['apply'];
+    $per = $_POST['percentage'];
     $year = $_POST['year'];
      
-    $sql = "INSERT INTO `candidates`( `name`, `apply`, `qual`, `year`) VALUES ('$name','$qual','$apply','$year')";
+    $sql = "INSERT INTO `candidates`(`college`,`rollno`, `name`,`qual`, `percentage`,  `year`) VALUES ('$college','$rollno','$name','$qual','$per','$year')";
     mysqli_query($conn, $sql);
+    header("location:career.php");
 
 }
 

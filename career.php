@@ -1,16 +1,15 @@
-
 <?php
-
 $server = 'localhost';
 $username = 'root';
 $password = '';
 $database = 'jobs';
 
-
 $conn = mysqli_connect($server, $username, $password, $database);
 ?>
+<?php 'include:config.php'?>
 <!DOCTYPE html>
 <html lang="en">
+<?php 'include:config.php'?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,48 +61,49 @@ $conn = mysqli_connect($server, $username, $password, $database);
         echo"";
     }
     ?>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog"  >
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Credentials</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="config.php" method="POST">
         <div class="mb-3">
-    <label for="Company Name" class="form-label">Company Name</label>
-    <input type="text" class="form-control" id="company name" name="cname">
+    <label for="College" class="form-label"> College Name</label>
+    <input type="text" class="form-control" name="college">
   </div>
   <div class="mb-3">
-    <label for="exampleInputPosition" class="form-label">Position</label>
-    <input type="text" class="form-control" id="exampleInputPosition" name="position">
+    <label for="RollNO" class="form-label">Roll No/ Unique ID</label>
+    <input type="text" class="form-control" name="rollno">
+  </div>
+        <div class="mb-3">
+    <label for="Name" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name">
   </div>
   <div class="mb-3">
-    <label for="exampleInputJobdesc" class="form-label">Job Description</label>
-    <input type="text" class="form-control" id="Jobdesc" name="JobDesc">
+    <label for="exampleInputqual" class="form-label">Qualification</label>
+    <input type="text" class="form-control"  name="qual">
   </div>
   <div class="mb-3">
-    <label for="exampleInputskills" class="form-label">Skills Required</label>
-    <input type="text" class="form-control" id="exampleInputPosition" name="skills">
+    <label for="exampleInputpercentage" class="form-label">Percentage</label>
+    <input type="text" class="form-control"  name="percentage">
   </div>
   <div class="mb-3">
-    <label for="CTC" class="form-label">CTC</label>
-    <input type="text" class="form-control" id="CTC" name="CTC">
+    <label for="exampleInputyear" class="form-label">Passout year</label>
+    <input type="text" class="form-control"  name="year">
   </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="submit" name="submita" class="btn btn-primary">Apply now</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
-
 </div>
-
-
 <script>"http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
